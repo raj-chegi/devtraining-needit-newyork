@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Email Update Request" max_length="40" name="x_58872_needit_email_update_request" type="collection">
+        <element attributes="encode_utf8=false" label="Requested For Name" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Reqested For Email Address" max_length="40" name="u_requested_for_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Requested For Name" mandatory="true" max_length="40" name="u_requested_for_name" reference="sys_user" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="New Email Address" max_length="40" name="u_requested_for_new_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Requested By Name" max_length="40" name="u_requester_by_name" type="string"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Select Task" max_length="1024" name="u_select_task" reference="incident" type="glide_list"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Task Type" mandatory="true" max_length="40" name="u_task_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Incident" sequence="0" value="Incident"/>
+                <element inactive_on_update="false" label="Change" sequence="1" value="Change"/>
+                <element inactive_on_update="false" label="Problem" sequence="2" value="Problem"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="u_requested_for"/>
+        </index>
+    </element>
+</database>
